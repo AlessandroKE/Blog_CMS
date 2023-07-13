@@ -1,16 +1,16 @@
 <?php require '../includes/header.php'; ?>
 
+<?php
+require '../config/config.php';
+// database connection
+$conn = getConn($host, $db_name, $user, $password);
+$errors = array();
 
-  <?php
-  require '../config/config.php';
-//database connection
-  $conn = getConn($host, $db_name, $user, $password);
-  $errors = array();
-
-  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    //hashing  the password
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if (empty($email)) {
         $errors[] = "Please enter your email.";
@@ -33,65 +33,47 @@
         }
     } else {
         // Form validation successful, proceed with registration logic
-        // ...
+        if ($conn) {
+            // SQL Query to insert users data into the database
+            $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+
+            if ($stmt->execute()) {
+               header("location: login.php");
+            } else {
+                echo "Registration failed.";
+            }
+        }
     }
 }
+?>
 
-  if($conn){
+<form method="POST" action="register.php">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+        <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" />
+    </div>
 
-    //SQL Query to insert users data into the database
+    <div class="form-outline mb-4">
+        <input type="text" name="username" id="form2Example2" class="form-control" placeholder="Username" />
+    </div>
 
-    $sql = "INSERT INTO users (email, username, password) values (?,?,?)";
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+        <input type="password" name="password" id="form2Example3" placeholder="Password" class="form-control" />
+    </div>
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam("sss", $email, $username,$password);
+    <!-- Submit button -->
+    <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Register</button>
 
-    if($stmt->execute()){
-
-      echo "Registration is successful";
-
-    }else{
-
-    }
-
-
- }
-
-
-    ?>
-
-
-            <form method="POST" action="register.php">
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" />
-               
-              </div>
-
-              <div class="form-outline mb-4">
-                <input type="" name="username" id="form2Example1" class="form-control" placeholder="Username" />
-               
-              </div>
-
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <input type="password" name="password" id="form2Example2" placeholder="Password" class="form-control" />
-                
-              </div>
-
-
-
-              <!-- Submit button -->
-              <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Register</button>
-
-              <!-- Register buttons -->
-              <div class="text-center">
-                <p>Aleardy a member? <a href="login.php">Login</a></p>
-                
-
-               
-              </div>
-            </form>
+    <!-- Register buttons -->
+    <div class="text-center">
+        <p>Already a member? <a href="login.php">Login</a></p>
+    </div>
+</form>
 
 <?php require '../includes/footer.php'; ?>
-        
