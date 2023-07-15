@@ -1,8 +1,56 @@
 <?php require '../includes/header.php'; ?>
 
+
 <?php
+require '../config/config.php';
+$conn = getConn($host, $db_name, $user, $password);
+$errors = array();
+
+if(isset($_POST['submit'])){
+  $email = $_POST['email'];
+   // $username = $_POST['username'];
+    //hashing  the password
+    $password = $_POST['password'];
+    if (empty($email)) {
+        $errors[] = "Please enter your email.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+
+    if (empty($password)) {
+        $errors[] = "Please enter your password.";
+    }
+    if (count($errors) > 0) {
+      // Display all error messages
+      foreach ($errors as $error) {
+          echo $error . "<br>";
+      }
+    } else{
+  if($conn){
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $stmt = $conn->prepare($sql);
+    $stmt ->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($stmt->rowCount() > 0) {
+      if(password_verify($password, $row['password'])){
+
+        echo "Logged in sucessfully";
+
+      }else{
+        echo "wrong password";
+      }
+
+    }else{
+      echo "user not found";
+    }
+  }  
+}
 
 
+
+}
 
 ?>
 
@@ -19,7 +67,6 @@
                     <input type="password" name="password" id="form2Example2" placeholder="Password" class="form-control" />
                     
                   </div>
-
 
 
                   <!-- Submit button -->
