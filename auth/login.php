@@ -36,7 +36,10 @@ if(isset($_POST['submit'])){
     if ($stmt->rowCount() > 0) {
       if(password_verify($password, $row['password'])){
 
-        echo "Logged in sucessfully";
+        $_SESSION['username'] = $row['username'];
+
+       // echo "Logged in sucessfully";
+       header("Location: http://localhost/Blog_CMS/index.php");
 
       }else{
         echo "wrong password";

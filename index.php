@@ -49,8 +49,8 @@
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2022
+                            <a href="#!">Sandro KE</a>
+                            on July 8, 2023
                         </p>
                     </div>
                     <!-- Divider-->
