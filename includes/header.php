@@ -20,6 +20,9 @@ session_start();
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="http://localhost/Blog_CMS/css/styles.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+ 
     </head>
     <body>
         <!-- Navigation-->
@@ -34,10 +37,10 @@ session_start();
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
 
                     <?php if(isset($_SESSION['username'])) : ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../posts/create.html">create</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/posts/create.php">create</a></li>
                 <li class="nav-item dropdown mt-3" >
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php echo $_SESSION['username']; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,13 +49,13 @@ session_start();
                     </div>
                 </li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="login.php">login</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="register.php">register</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/auth/login.php">login</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/auth/register.php">register</a></li>
                     
                     <?php  endif; ?>
                        
             
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/contact.php">Contact</a></li>
                     </ul>
                 </div>
             </div>
