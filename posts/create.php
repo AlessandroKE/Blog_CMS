@@ -14,6 +14,7 @@
             $subtitle = $_POST['subtitle'];
             $body = $_POST['body'];
            $user_id = $_SESSION['user_id'];
+           $username =$_SESSION['username'];
 
 
             // Check if an image file was uploaded
@@ -45,13 +46,15 @@
         //$user_id = $_SESSION['id'];
 
         // Saving the data in the database: 
-        $query = "INSERT INTO posts (title, subtitle, body, img, user_id) VALUES (:title, :subtitle, :body, :image, :user_id)";
+        $query = "INSERT INTO posts (title, subtitle, body, img, user_id, username) VALUES (:title, :subtitle, :body, :image, :user_id , :username)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':title', $title, PDO::PARAM_INT);
         $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindParam(':body', $body, PDO::PARAM_STR);
         $stmt->bindParam(':image', $imgPath, PDO::PARAM_STR);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        
 
         if ($stmt->execute()) {
             header("Location: http://localhost/Blog_CMS/index.php");

@@ -45,7 +45,7 @@ session_start();
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="../Blog_CMS/auth/logout.php">Logout</a>
+                    <a class="dropdown-item" href="http://localhost/Blog_CMS/auth/logout.php">Logout</a>
                     </div>
                 </li>
                     <?php else: ?>
