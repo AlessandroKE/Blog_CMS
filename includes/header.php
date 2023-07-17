@@ -35,9 +35,9 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/index.php">Home</a></li>
                     <?php if(isset($_SESSION['username'])) : ?>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/index.php">Home</a></li>
+                        
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="http://localhost/Blog_CMS/posts/create.php">create</a></li>
                 <li class="nav-item dropdown mt-3" >
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +45,7 @@ session_start();
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="../Blog_CMS/auth/logout.php">Logout</a>
                     </div>
                 </li>
                     <?php else: ?>

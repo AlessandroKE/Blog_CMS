@@ -6,6 +6,10 @@ require '../config/config.php';
 $conn = getConn($host, $db_name, $user, $password);
 $errors = array();
 
+if(isset ($_SESSION['username'])){
+  header("location: http://localhost/Blog_CMS/index.php");
+}
+
 if(isset($_POST['submit'])){
   $email = $_POST['email'];
    // $username = $_POST['username'];
