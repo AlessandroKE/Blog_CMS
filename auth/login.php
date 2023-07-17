@@ -41,6 +41,8 @@ if(isset($_POST['submit'])){
       if(password_verify($password, $row['password'])){
 
         $_SESSION['username'] = $row['username'];
+        $_SESSION['user_id'] = $row['user_id'];
+
 
        // echo "Logged in sucessfully";
        header("Location: http://localhost/Blog_CMS/index.php");
