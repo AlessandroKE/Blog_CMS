@@ -48,7 +48,7 @@
         // Saving the data in the database: 
         $query = "INSERT INTO posts (title, subtitle, body, img, user_id, username) VALUES (:title, :subtitle, :body, :image, :user_id , :username)";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(':title', $title, PDO::PARAM_INT);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindParam(':body', $body, PDO::PARAM_STR);
         $stmt->bindParam(':image', $imgPath, PDO::PARAM_STR);
