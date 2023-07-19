@@ -77,7 +77,7 @@
                         
                            
                        
-                            <a href="" class ="btn btn-danger text-centre " >Delete</a>
+                            <a href="http://localhost/Blog_CMS/posts/delete.php?del_id=<?php echo $post->id ?>" class ="btn btn-danger text-centre " >Delete</a>
                             <a href=""class = "btn btn-warning text-centre">Update</a> 
                        
                     
