@@ -48,7 +48,7 @@
 ?>
         
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('images/ <?php echo $post->img; ?>')">
+        <header class="masthead" style="background-image: url('images/<?php echo $post->img; ?>')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -75,10 +75,12 @@
                        
                         <p><?php echo $post->body; ?></p>
                         
-                            Placeholder text by
-                            <a href="http://spaceipsum.com/">Space Ipsum</a>
-                            &middot; Images by
-                            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
+                           
+                       
+                            <a href="" class ="btn btn-danger text-centre " >Delete</a>
+                            <a href=""class = "btn btn-warning text-centre">Update</a> 
+                       
+                    
                         </p>
                     </div>
                 </div>

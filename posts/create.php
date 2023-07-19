@@ -51,7 +51,7 @@
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindParam(':body', $body, PDO::PARAM_STR);
-        $stmt->bindParam(':image', $imgPath, PDO::PARAM_LOB);
+        $stmt->bindParam(':image', $imgPath, PDO::PARAM_STR);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         
