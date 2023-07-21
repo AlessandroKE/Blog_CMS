@@ -36,7 +36,7 @@
 
             // Sanitizing the filename to remove any unwanted characters
             $imgName = basename($imgName); // Getting  the basename of the filename
-            $imgName = preg_replace("/[^a-zA-Z0-9\_\-\.]/", "_", $imgName); // Replacing  special characters with underscores
+            //$imgName = preg_replace("/[^a-zA-Z0-9\_\-\.]/", "_", $imgName); // Replacing  special characters with underscores
 
             $imgPath = 'images/' . $imgName;
 

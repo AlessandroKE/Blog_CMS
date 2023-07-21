@@ -3,10 +3,16 @@
 session_start();
 
 ?>
-
+<?php // $faviconPath = "path/to/your/favicon.ico"; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+         <!-- Existing meta tags and links -->
+
+        <link rel="icon" type="image/x-icon" href="<?php //echo $faviconPath; ?>" />
+
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
