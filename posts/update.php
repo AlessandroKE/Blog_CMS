@@ -4,28 +4,35 @@
 <?php
     require '../config/config.php';
     $conn = getConn($host, $db_name, $user, $password);
-?>
-                <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
 
-            <form method="POST" action="">
+    if(isset($GET['upd_id'])){
+      $id = $_GET['upd_id'];
+
+      $stmt = $conn->query("SELECT * FROM posts WHERE id  = '$id'");
+      $stmt->execute();
+
+      $rows = $stmt->fetch(PDO::FETCH_OBJ);
+    }
+?>
+        
+            <form method="POST" action="update.php?upd_id=">
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="title" />
+                <input type="text" name="title"  value = <?php echo $rows->title ?>id="form2Example1" class="form-control" placeholder="title" />
                
               </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="subtitle" />
+                <input type="text" name="subtitle" value = <?php echo $rows->subtitle ?> id="form2Example1" class="form-control" placeholder="subtitle" />
             </div>
 
               <div class="form-outline mb-4">
-                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="body" />
+                <input type="text" name="body" value = <?php echo $rows->body ?> id="form2Example1" class="form-control" placeholder="body" />
             </div>
 
               
              <div class="form-outline mb-4">
-                <input type="file" name="email" id="form2Example1" class="form-control" placeholder="image" />
+                <input type="file" name="img" value = <?php echo $rows->img ?> id="form2Example1" class="form-control" placeholder="image" />
             </div>
 
 
