@@ -89,7 +89,8 @@ if (isset($_GET['upd_id'])) {
         <input type="text" name="body" value="<?php echo isset($rows) ? $rows->body : ''; ?>" id="form2Example1" class="form-control" placeholder="body" />
     </div>
 
-    <?php echo $rows->img; ?>
+    <?php echo "<img src = 'images/" . $rows->img . "' style='max-width: 500px; max-height: 500px;' />"; ?>
+
 
     <div class="form-outline mb-4">
         <input type="file" name="img" id="form2Example1" class="form-control" placeholder="image" />
