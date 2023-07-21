@@ -76,9 +76,10 @@
                         <p><?php echo $post->body; ?></p>
                         
                            
-                       
+                       <?php if(isset($_SESSION['user_id']) AND $_SESSION['user_id'] == $post->user_id) : ?>
                             <a href="http://localhost/Blog_CMS/posts/delete.php?del_id=<?php echo $post->id ?>" class ="btn btn-danger text-centre " >Delete</a>
                             <a href="update.php?upd_id=<?php echo $post->id ?>"class = "btn btn-warning text-centre">Update</a> 
+                            <?php endif; ?>
                        
                     
                         </p>
