@@ -30,9 +30,14 @@
                 exit;
             }
 
-            // Process the uploaded image
+                    // Process the uploaded image
             $imgName = $img['name'];
             $imgTmp = $img['tmp_name'];
+
+            // Sanitizing the filename to remove any unwanted characters
+            $imgName = basename($imgName); // Getting  the basename of the filename
+            $imgName = preg_replace("/[^a-zA-Z0-9\_\-\.]/", "_", $imgName); // Replacing  special characters with underscores
+
             $imgPath = 'images/' . $imgName;
 
             if (!move_uploaded_file($imgTmp, $imgPath)) {
@@ -51,7 +56,7 @@
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindParam(':body', $body, PDO::PARAM_STR);
-        $stmt->bindParam(':image', $imgPath, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $imgName, PDO::PARAM_STR);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         

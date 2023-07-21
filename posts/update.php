@@ -16,39 +16,7 @@ if (isset($_GET['upd_id'])) {
     $rows = $stmt->fetch(PDO::FETCH_OBJ);
 
 
-    //updating the data into the database
-
-    if(isset($_POST['submit'])){
-      if($_POST['title'] == '' OR $_POST['subtitle'] == '' OR $_POST['body'] == ''){
-          echo "One or more fields is missing";
-      } else{
-          $title = $_POST['title'];
-          $subtitle = $_POST['subtitle'];
-          $body = $_POST['body'];
-        
-
-            // Saving the data in the database: 
-        $query = "UPDATE posts SET title = :title, subtitle = :subtitle, body = :body WHERE id = '$id'";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
-        $stmt->bindParam(':body', $body, PDO::PARAM_STR);
-        /* $stmt->bindParam(':image', $imgPath, PDO::PARAM_STR);
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(':username', $username, PDO::PARAM_STR); */
-        
-
-        if ($stmt->execute()) {
-            header("Location: http://localhost/Blog_CMS/index.php");
-        } else {
-            echo "Failed to insert data.";
-        }
-
-      }
-
-    }
-
-
+    
 }
 ?>
 
