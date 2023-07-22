@@ -15,6 +15,12 @@ if (isset($_GET['upd_id'])) {
 // Fetch the result as an object and store it in the $rows variable
     $rows = $stmt->fetch(PDO::FETCH_OBJ);
 
+//Enhancing security 
+    /* if($_SESSION['user_id'] !== $rows->user_id){
+
+      header("Location: http://localhost/Blog_CMS/index.php");
+      
+    } */
     if(isset($_POST['submit'])){
       if($_POST['title'] == '' OR $_POST['subtitle'] == '' OR $_POST['body'] == ''){
           echo "One or more fields is missing";
