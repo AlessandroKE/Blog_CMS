@@ -13,6 +13,12 @@ $stmt->execute();
 
 $rows = $stmt->fetchALL(PDO::FETCH_OBJ);
 
+
+$categories = $conn->prepare("SELECT * FROM categories");
+$categories->execute();
+
+$category = $categories->fetchALL(PDO::FETCH_OBJ);
+
 ?>
 
 
@@ -47,4 +53,17 @@ $rows = $stmt->fetchALL(PDO::FETCH_OBJ);
                 </div>
             </div>
         </div>
+
+      <!--   <div class="container px-4 px-lg-5"> -->
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <?php foreach ($category as $cat) :?>
+                <div class = "col-md-5" >
+                <div class="alert alert-dark" role="alert" style="margin: 1rem 0; padding: 1rem 1.5rem; border-radius: 0.25rem; background-color: #fff; color: #343a40;">
+                    <a href="http://localhost/Blog_CMS/categories/category.php?cat_id=<?php echo $cat->id ?>"><?php  echo $cat->name; ?></a>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+
+            <div>
+         </div>
         <?php require 'includes/footer.php'; ?>
