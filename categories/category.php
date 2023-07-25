@@ -18,7 +18,8 @@
 
         $rows = $stmt->fetchALL(PDO::FETCH_OBJ);
         } else {
-            echo "404";
+            //echo "404";
+            header("Location:http://localhost/Blog_CMS/404.php");
         }
 
 ?>

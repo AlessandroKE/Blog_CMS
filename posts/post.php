@@ -20,6 +20,7 @@
         $post = $stmt->fetch(PDO::FETCH_OBJ); // Assign the fetched post object to the $post variable
     }else{
        // echo "Invalid post";
+       header("Location:http://localhost/Blog_CMS/404.php");
     } 
 
     /* if(isset($_GET['post_id'])) {

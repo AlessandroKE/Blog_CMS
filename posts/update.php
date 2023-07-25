@@ -55,9 +55,11 @@ if (isset($_GET['upd_id'])) {
           if (!move_uploaded_file($imgTmp, $imgPath)) {
               echo "Failed to upload the image.";
               exit;
+          }else{
+            echo "no image file was uploaded";
           }
       } else {
-          echo "No image file was uploaded.";
+          echo "error 404";
           exit;
       }
       //$user_id = $_SESSION[

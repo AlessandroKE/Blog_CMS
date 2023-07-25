@@ -30,7 +30,7 @@ if(isset($_GET['del_id'])){
 
         header("location: http://localhost/Blog_CMS/index.php");
 }else {
-    echo "An error occurred while deleting post";
+    header("Location:http://localhost/Blog_CMS/404.php");
 }
 
 

@@ -17,11 +17,11 @@ if (isset($_GET['prof_id'])) {
     $rows = $stmt->fetch(PDO::FETCH_OBJ);
 
 //Enhancing security 
-    /* if($_SESSION['user_id'] !== $rows->user_id){
+    if($_SESSION['user_id'] !== $rows->user_id){
 
       header("Location: http://localhost/Blog_CMS/index.php");
       
-    } */
+    } 
     if(isset($_POST['submit'])){
         if($_POST['email'] == '' OR $_POST['username'] == ''){
             echo "One or more fields is missing";
@@ -45,6 +45,8 @@ if (isset($_GET['prof_id'])) {
        }
     }
 
+}else{
+    header("Location:http://localhost/Blog_CMS/404.php");
 }
 
 ?>
