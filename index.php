@@ -8,7 +8,7 @@ $conn = getConn($host, $db_name, $user, $password);
 
 
 
-$stmt = $conn->prepare("SELECT * FROM posts");
+$stmt = $conn->prepare("SELECT * FROM posts LIMIT 5");
 $stmt->execute();
 
 $rows = $stmt->fetchALL(PDO::FETCH_OBJ);
