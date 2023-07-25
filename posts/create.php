@@ -1,6 +1,8 @@
 <?php require '../includes/header.php'; ?>
 
 
+
+
 <?php
     require '../config/config.php';
     $conn = getConn($host, $db_name, $user, $password);
@@ -92,9 +94,15 @@
               <div class="form-outline mb-4">
                 <input type="text" name="subtitle" id="form2Example1" class="form-control" placeholder="subtitle" />
             </div>
+            <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+            <div class="form-outline mb-4">
+                <textarea name="body" rows="5" cols="80"id="form2Example1" class="form-control" placeholder="body"></textarea>
+            <script>
+                CKEDITOR.replace('body');
+            </script>
 
-              <div class="form-outline mb-4">
-                <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"></textarea>
+              <!-- <div class="form-outline mb-4">
+                <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"></textarea> -->
             </div>
 
             <div class="form-outline mb-4">
