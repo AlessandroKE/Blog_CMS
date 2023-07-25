@@ -48,7 +48,7 @@ session_start();
                     <?php echo $_SESSION['username']; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="http://localhost/Blog_CMS/users/profile.php?prof_id=<?php echo $_SESSION['user_id'] ?>">Profile</a>
                     <a class="dropdown-item" href="http://localhost/Blog_CMS/auth/logout.php">Logout</a>
                     </div>
                 </li>
