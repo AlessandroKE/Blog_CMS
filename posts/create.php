@@ -13,12 +13,13 @@
         $category = $categories->fetchALL(PDO::FETCH_OBJ);
 
     if(isset($_POST['submit'])){
-        if($_POST['title'] == '' OR $_POST['subtitle'] == '' OR $_POST['body'] == ''){
+        if($_POST['title'] == '' OR $_POST['subtitle'] == '' OR $_POST['body'] == '' OR $_POST['category_id'] == ''){
             echo "One or more fields is missing";
         } else{
             $title = $_POST['title'];
             $subtitle = $_POST['subtitle'];
             $body = $_POST['body'];
+            $category_id = $_POST['category_id'];
            $user_id = $_SESSION['user_id'];
            $username =$_SESSION['username'];
 
@@ -57,11 +58,12 @@
         //$user_id = $_SESSION['id'];
 
         // Saving the data in the database: 
-        $query = "INSERT INTO posts (title, subtitle, body, img, user_id, username) VALUES (:title, :subtitle, :body, :image, :user_id , :username)";
+        $query = "INSERT INTO posts (title, subtitle, body, category_id, img, user_id, username) VALUES (:title, :subtitle, :body, :category_id, :image, :user_id , :username)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':subtitle', $subtitle, PDO::PARAM_STR);
         $stmt->bindParam(':body', $body, PDO::PARAM_STR);
+        $stmt->bindParam(':category_id', $category_id, PDO::PARAM_INT);
         $stmt->bindParam(':image', $imgName, PDO::PARAM_STR);
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
