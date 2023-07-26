@@ -1,5 +1,4 @@
-
-            
+<?php require 'layout/header.php'; ?>       
       <div class="row">
         <div class="col-md-4">
           <div class="card">
@@ -67,14 +66,4 @@
     </tr>
   </tbody>
 </table> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<script type="text/javascript">
-
-</script>
-</body>
-</html>
+<?php require 'layout/footer.php'; ?>     
