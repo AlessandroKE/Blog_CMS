@@ -1,4 +1,5 @@
-<?php require 'layout/header.php'; ?>       
+<?php require 'layout/header.php'; ?>   
+<?php require '../config/config.php'; ?>    
       <div class="row">
         <div class="col-md-4">
           <div class="card">
