@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
 
 
        // echo "Logged in sucessfully";
-       header("Location: http://localhost/Blog_CMS/index.php");
+       header("Location: http://localhost/Blog_CMS/admins/index.php");
 
       }else{
         echo "wrong password";
