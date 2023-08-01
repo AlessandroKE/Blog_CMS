@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +26,7 @@
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+  <?php if(isset($_SESSION['adminname'])) : ?>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav side-nav" >
           <li class="nav-item">
@@ -39,6 +46,7 @@
          <!--  <li class="nav-item">
             <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
           </li> -->
+          <?php endif; ?>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
@@ -56,7 +64,7 @@
               username
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="http://localhost/Blog_CMS/admin-panel/admins/logout.php">Logout</a>
               
           </li>
                           
