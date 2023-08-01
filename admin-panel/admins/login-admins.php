@@ -41,8 +41,8 @@ if(isset($_POST['submit'])){
     if ($stmt->rowCount() > 0) {
       if(password_verify($password, $row['password'])){
 
-        $_SESSION['username'] = $row['username'];
-        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['adminname'] = $row['adminname'];
+        $_SESSION['admin_id'] = $row['id'];
 
 
        // echo "Logged in sucessfully";
