@@ -47,6 +47,8 @@ session_start();
             <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
           </li> -->
           <?php endif; ?>
+
+      <?php if(isset($_SESSION['adminname'])) : ?>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
@@ -54,20 +56,23 @@ session_start();
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://localhost/Blog_CMS/admin-panel/admins/login-admins.php">login
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
+         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               username
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="http://localhost/Blog_CMS/admin-panel/admins/logout.php">Logout</a>
-              
+            </div>
           </li>
-                          
+
+          <?php else : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/Blog_CMS/admin-panel/admins/login-admins.php">login
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>   
+          <?php endif; ?>    
           
         </ul>
       </div>
