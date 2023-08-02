@@ -59,7 +59,7 @@ session_start();
          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
+              <?php echo $_SESSION['adminname']; ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="http://localhost/Blog_CMS/admin-panel/admins/logout.php">Logout</a>
@@ -78,4 +78,4 @@ session_start();
       </div>
     </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container">

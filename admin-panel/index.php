@@ -1,5 +1,14 @@
 <?php require 'layout/header.php'; ?>   
-<?php require '../config/config.php'; ?>    
+<?php require '../config/config.php'; ?> 
+    <?php 
+
+    
+  if(!isset($_SESSION['adminname'])){
+    // echo "Logged in sucessfully";
+    header("Location: http://localhost/Blog_CMS/admin-panel/admins/login-admins.php");
+  }
+
+    ?>  
       <div class="row">
         <div class="col-md-4">
           <div class="card">

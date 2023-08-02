@@ -7,9 +7,10 @@
 $conn = getConn($host, $db_name, $user, $password);
 $errors = array();
 
-/* if(isset ($_SESSION['username'])){
-  header("location: http://localhost/Blog_CMS/index.php");
-} */
+if(isset($_SESSION['adminname'])){
+  // echo "Logged in sucessfully";
+  header("Location: http://localhost/Blog_CMS/admin-panel/index.php");
+ }
 
 if(isset($_POST['submit'])){
   $email = $_POST['email'];
@@ -44,9 +45,10 @@ if(isset($_POST['submit'])){
         $_SESSION['adminname'] = $row['adminname'];
         $_SESSION['admin_id'] = $row['id'];
 
-
+      if(isset($_SESSION['adminname'])){
        // echo "Logged in sucessfully";
        header("Location: http://localhost/Blog_CMS/admin-panel/index.php");
+      }
 
       }else{
         echo "wrong password";
