@@ -19,7 +19,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title mb-4 d-inline">Categories</h5>
-             <a  href="create-category.html" class="btn btn-primary mb-4 text-center float-right">Create Categories</a>
+             <a  href="http://localhost/Blog_CMS/admin-panel/categories-admins/create-category.php" class="btn btn-primary mb-4 text-center float-right">Create Categories</a>
               <table class="table">
                 <thead>
                   <tr>
@@ -34,8 +34,8 @@
                   <tr>
                     <th scope="row"><?php echo $row->id; ?></th>
                     <td><?php echo $row->name; ?></td>
-                    <td><a  href="update-category.html" class="btn btn-warning text-white text-center ">Update Categories</a></td>
-                    <td><a href="delete-category.html" class="btn btn-danger  text-center ">Delete Categories</a></td>
+                    <td><a  href="http://localhost/Blog_CMS/admin-panel/categories-admins/update-category.php" class="btn btn-warning text-white text-center ">Update Categories</a></td>
+                    <td><a href="http://localhost/Blog_CMS/admin-panel/categories-admins/delete-category.php" class="btn btn-danger  text-center ">Delete Categories</a></td>
                   </tr>
                  <?php endforeach; ?>
                 </tbody>
