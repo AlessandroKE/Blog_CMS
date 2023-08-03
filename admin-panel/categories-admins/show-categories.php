@@ -34,8 +34,8 @@
                   <tr>
                     <th scope="row"><?php echo $row->id; ?></th>
                     <td><?php echo $row->name; ?></td>
-                    <td><a  href="http://localhost/Blog_CMS/admin-panel/categories-admins/update-category.php" class="btn btn-warning text-white text-center ">Update </a></td>
-                    <td><a href="http://localhost/Blog_CMS/admin-panel/categories-admins/delete-category.php" class="btn btn-danger  text-center ">Delete </a></td>
+                    <td><a  href="http://localhost/Blog_CMS/admin-panel/categories-admins/update-category.php?upd_id=<?php echo $row->id ?>" class="btn btn-warning text-white text-center ">Update </a></td>
+                    <td><a href="http://localhost/Blog_CMS/admin-panel/categories-admins/delete-category.php?del_id=<?php echo $row->id ?>" class="btn btn-danger  text-center ">Delete </a></td>
                   </tr>
                  <?php endforeach; ?>
                 </tbody>
