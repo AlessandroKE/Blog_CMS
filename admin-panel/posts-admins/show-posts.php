@@ -38,7 +38,7 @@
                     <td><?php echo $row->title; ?></td>
                     <td><?php echo $row->category_id; ?></td>
                     <td><?php echo $row->user_id; ?></td>
-                     <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/delete-posts.php" class="btn btn-danger  text-center ">delete</a></td>
+                     <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/delete-posts.php?del_id=<?php echo $row->id ?>" class="btn btn-danger  text-center ">delete</a></td>
                   </tr>
                 <?php endforeach ?>
                 </tbody>
