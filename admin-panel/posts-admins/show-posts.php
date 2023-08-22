@@ -5,9 +5,16 @@
     <?php
 
     $conn = getConn($host, $db_name, $user, $password);
-
-    
-    $stmt = $conn->prepare("SELECT * FROM posts LIMIT 7");
+       /*
+      categories is the first table.
+      posts is the second table.
+      JOIN is used to combine the two tables based on a condition.
+      ON categories.id = posts.category_id is the condition for the join. 
+      It's saying to join rows where the value in the id column of the categories table matches the value in the category_id column of the posts table. 
+      This is likely a way to associate posts with their corresponding categories 
+      */
+    $stmt = $conn->prepare("SELECT posts.id AS id, posts.title AS title, posts.username AS username, categories.name As name,
+    FROM categories JOIN posts ON categories.id = posts.category_id");
     $stmt->execute();
 
     $rows = $stmt->fetchALL(PDO::FETCH_OBJ);
