@@ -50,9 +50,9 @@
                     <td><?php echo $row->username; ?></td>
                     <!-- Status Condition -->
                     <?php if($row->status == 0 ) : ?>
-                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/stasus-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-danger  text-center ">deactivated</a></td>
+                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/status-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-danger  text-center ">deactivated</a></td>
                     <?php else : ?>
-                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/stasus-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-primary  text-center ">activated</a></td>
+                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/status-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-primary  text-center ">activated</a></td>
                     <?php endif; ?>
                    <!--  <td><?php //echo $row->id; ?></td> -->
                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/delete-posts.php?del_id=<?php echo $row->id ?>" class="btn btn-danger  text-center ">delete</a></td>
