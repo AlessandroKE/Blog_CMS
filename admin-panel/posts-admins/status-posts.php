@@ -4,6 +4,12 @@
 require '../../config/config.php';
 $conn = getConn($host, $db_name, $user, $password);
 
+  
+if(!isset($_SESSION['adminname'])){
+    // echo "Logged in sucessfully";
+    header("Location: http://localhost/Blog_CMS/admin-panel/admins/login-admins.php");
+  }
+
 // Check if the 'id' and 'status' parameters are set in the URL
 if (isset($_GET['id']) && isset($_GET['status'])) {
     $id = $_GET['id'];

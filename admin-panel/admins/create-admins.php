@@ -10,6 +10,12 @@
         header("location: http://localhost/Blog_CMS/index.php");
       } */
 
+            
+      if(!isset($_SESSION['adminname'])){
+        // echo "Logged in sucessfully";
+        header("Location: http://localhost/Blog_CMS/admin-panel/admins/login-admins.php");
+      }
+
       if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $email = $_POST['email'];
         $adminname = $_POST['adminname'];

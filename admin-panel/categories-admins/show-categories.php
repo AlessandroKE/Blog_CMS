@@ -2,7 +2,11 @@
 <?php require '../../config/config.php'; ?> 
 
     <?php
-
+    
+    if(!isset($_SESSION['adminname'])){
+      // echo "Logged in sucessfully";
+      header("Location: http://localhost/Blog_CMS/admin-panel/admins/login-admins.php");
+    }
     $conn = getConn($host, $db_name, $user, $password);
 
     

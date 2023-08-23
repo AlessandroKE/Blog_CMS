@@ -3,6 +3,12 @@
  require '../../config/config.php';
  $conn = getConn($host, $db_name, $user, $password);
 
+   
+ if(!isset($_SESSION['adminname'])){
+    // echo "Logged in sucessfully";
+    header("Location: http://localhost/Blog_CMS/admin-panel/admins/login-admins.php");
+  }
+
 if(isset($_GET['del_id'])){
     $id = $_GET['del_id'];
 
