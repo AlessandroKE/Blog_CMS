@@ -11,8 +11,8 @@
         if(isset($_GET['cat_id'])){
             $id = $_GET['cat_id'];
         $sql = "SELECT posts.id AS id, posts.title AS title, posts.subtitle AS subtitle, posts.username AS username,
-        posts.created_at AS created_at, posts.category_id AS category_id FROM categories
-        JOIN posts ON categories.id = posts.category_id WHERE posts.category_id = '$id'";
+        posts.created_at AS created_at, posts.status AS status, posts.category_id AS category_id FROM categories
+        JOIN posts ON categories.id = posts.category_id WHERE posts.category_id = '$id' AND status = 1 ";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
