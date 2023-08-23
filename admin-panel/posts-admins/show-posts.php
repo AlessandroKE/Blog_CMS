@@ -13,7 +13,7 @@
       It's saying to join rows where the value in the id column of the categories table matches the value in the category_id column of the posts table. 
       This is likely a way to associate posts with their corresponding categories 
       */
-    $stmt = $conn->prepare("SELECT posts.id AS id, posts.title AS title, posts.username AS username, categories.name As name
+    $stmt = $conn->prepare("SELECT posts.id AS id, posts.title AS title, posts.username AS username, post.stasus AS status categories.name As name
     FROM categories
     JOIN posts ON categories.id = posts.category_id");
 
@@ -37,6 +37,7 @@
                     <th scope="col">title</th>
                     <th scope="col">category</th>
                     <th scope="col">user</th>
+                    <th scope="col">status</th>
                     <th scope="col">delete</th>
                   </tr>
                 </thead>
