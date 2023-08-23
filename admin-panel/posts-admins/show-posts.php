@@ -13,7 +13,7 @@
       It's saying to join rows where the value in the id column of the categories table matches the value in the category_id column of the posts table. 
       This is likely a way to associate posts with their corresponding categories 
       */
-    $stmt = $conn->prepare("SELECT posts.id AS id, posts.title AS title, posts.username AS username, post.stasus AS status categories.name As name
+    $stmt = $conn->prepare("SELECT posts.id AS id, posts.title AS title, posts.username AS username, posts.status AS status, categories.name As name
     FROM categories
     JOIN posts ON categories.id = posts.category_id");
 
@@ -48,10 +48,16 @@
                     <td><?php echo $row->title; ?></td>
                     <td><?php echo $row->name; ?></td>
                     <td><?php echo $row->username; ?></td>
-                    <td><?php echo $row->id; ?></td>
+                    <!-- Status Condition -->
+                    <?php if($row->status == 0 ) : ?>
+                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/stasus-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-danger  text-center ">deactivated</a></td>
+                    <?php else : ?>
+                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/stasus-posts.php?status=<?php echo $row->status?>&id= <?php echo $row->id ?>" class="btn btn-primary  text-center ">activated</a></td>
+                    <?php endif; ?>
+                   <!--  <td><?php //echo $row->id; ?></td> -->
                      <td><a href="http://localhost/Blog_CMS/admin-panel/posts-admins/delete-posts.php?del_id=<?php echo $row->id ?>" class="btn btn-danger  text-center ">delete</a></td>
                   </tr>
-                <?php endforeach ?>
+                <?php endforeach; ?>
                 </tbody>
               </table> 
             </div>
